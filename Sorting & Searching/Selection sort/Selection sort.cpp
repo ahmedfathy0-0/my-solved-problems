@@ -1,3 +1,25 @@
+/*
+
+
+
+  ,ad8888ba,   88b           d88  88888888ba    ad888888b,  888888888888
+ d8"'    `"8b  888b         d888  88      "8b  d8"     "88          ,8P'
+d8'            88`8b       d8'88  88      ,8P          a8P         d8"
+88             88 `8b     d8' 88  88aaaaaa8P'       ,d8P"        ,8P'
+88             88  `8b   d8'  88  88""""""'       a8P"          d8"
+Y8,            88   `8b d8'   88  88            a8P'          ,8P'
+ Y8a.    .a8P  88    `888'    88  88           d8"           d8"
+  `"Y8888Y"'   88     `8'     88  88           88888888888  8P'
+
+
+
+
+*/
+
+
+
+
+
 #include <iostream>
 void SelectionSort_asc_L2R(int arr[], int n) {
 	for (int i = 0; i < n - 1; i++) {

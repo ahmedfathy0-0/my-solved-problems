@@ -1,3 +1,18 @@
+/*
+
+ ___  __ __  ___  ___  ___
+|  _>|  \  \| . \<_  >|_  |
+| <__|     ||  _/ / /  / /
+`___/|_|_|_||_|  <___>/_/
+
+
+*/
+
+
+
+
+
+
 #include <iostream>
 int LinearSearch(int arr[], int n, int x)//called sequential search too
 {
