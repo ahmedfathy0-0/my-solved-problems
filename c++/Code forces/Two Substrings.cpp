@@ -5,19 +5,17 @@ using namespace std;
 int main (){
     string s;
     cin >> s;
-    int a = s.find("AB");
-    int b = s.find("BA");
+    int ab1 = s.find("AB");
+    int ba1 = s.find("BA", ab1 + 2);
+    int ba2 = s.find("BA");
+    int ab2 = s.find("AB", ba2 + 2);
+   
 
-    if(b ==-1 || a == -1){
-        cout << "NO";
-        return 0;
-    }
-    if (b != a+1 && a != b+1){
+    if((ab1 != -1 && ba1 != -1) || (ab2 != -1 && ba2 != -1)){
         cout << "YES";
-        return 0;
-    }
-    else {
+    }else{
         cout << "NO";
-        return 0;
     }
+    return 0;
+
 }
