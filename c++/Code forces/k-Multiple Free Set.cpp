@@ -1,66 +1,28 @@
 #include <iostream>
-using namespace std;
+#include <set>
 #include <vector>
+#include <algorithm>
 
-void maxheapify(vector<int> &a, int n, int i){
-    int largest = i;
-    int l = 2*i+1;
-    int r = 2*i+2;
-    if(l<n && a[l]>a[largest]){
-        largest = l;
-    }
-    if(r<n && a[r]>a[largest]){
-        largest = r;
-    }
-    if(largest!=i){
-        swap(a[i], a[largest]);
-        maxheapify(a, n, largest);
-    }
-
-
-}
-void heapsort(vector<int> &a, int n){
-    for(int i = n/2-1; i>=0; i--){
-        maxheapify(a, n, i);
-    }
-    for(int i = n-1; i>0; i--){
-        swap(a[0], a[i]);
-        maxheapify(a, i, 0);
-    }
-}
-bool binarysearch(vector<int> &a, int n, int k){
-    int l = 0;
-    int r = n-1;
-    while(l<=r){
-        int mid = l+(r-l)/2;
-        if(a[mid]==k){
-            return true;
-        }
-        else if(a[mid]>k){
-            r = mid-1;
-        }
-        else{
-            l = mid+1;
-        }
-    }
-    return false;
-}
-int main (){
+int main() {
     int n, k;
-    cin>>n>>k;
-    vector<int> a(n);
-    for(int i = 0; i<n; i++){
-        cin>>a[i];
+    std::cin >> n >> k;
+    std::vector<int> a(n);
+    
+    for (int i = 0; i < n; ++i) {
+        std::cin >> a[i];
     }
-    heapsort(a, n);
-    vector <int> largsubset;
-    for(int i = n-1; i>=0; i--){
-        largestsubset.push_back(a[i]);
-        if (binarysearch(largsubset, largsubset.size(), a[i]/k)){
-            largsubset.pop_back();
+    
+    std::sort(a.begin(), a.end());
+    
+    std::set<int> k_multiple_free_set;
+    
+    for (int i = 0; i < n; ++i) {
+        if (k_multiple_free_set.find(a[i] / k) == k_multiple_free_set.end() || a[i] % k != 0) {
+            k_multiple_free_set.insert(a[i]);
         }
-        
     }
-    cout<<largsubset.size();
+    
+    std::cout << k_multiple_free_set.size() << std::endl;
+    
     return 0;
 }
