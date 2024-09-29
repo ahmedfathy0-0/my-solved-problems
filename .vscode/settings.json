@@ -64,6 +64,9 @@
     "xutility": "cpp",
     "xstring": "cpp",
     "vector": "cpp",
-    "ostream": "cpp"
+    "ostream": "cpp",
+    "deque": "cpp",
+    "format": "cpp",
+    "list": "cpp"
   }
 }
