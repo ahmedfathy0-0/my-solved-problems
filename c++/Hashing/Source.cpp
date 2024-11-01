@@ -14,7 +14,10 @@
 
 
 #include <iostream>
+#include <vector>
+using namespace std;
 // Hash function using the division method
+//Open addressing is not typically used if keys can be deleted, use chaining instead
 
 
 // Function to hash a key into an array
@@ -62,10 +65,12 @@ void hash_QuadraticProbing(int arr[], int key, int size) {
 void hash_doubleHashing(int arr[], int key, int size) {
 	// Calculate the index for the key using the hash function
 	int prime = 7; // Prime number for the double hashing
-	int index,index2;
+	int index,index1,index2;
     for (int i = 0; i < size; i++) {
-        index2 = prime-(key%prime); // Second hash function ,it can be any function
-		index = (key + i * index2) % size; // Hash function (double hashing)
+		index1 = key % size; // First hash function ,it can be any hash function
+        index2 = prime-(key%prime); // Second hash function ,it can be any hash function
+
+		index = (index1 + i * index2) % size; // Hash function (double hashing)
 
 
 		// If the calculated index is not empty, it means a collision has occurred.
@@ -83,9 +88,17 @@ void hash_doubleHashing(int arr[], int key, int size) {
 	}
 }
 
-/*Open addressing is not typically used if keys can be deleted, use 
-chaining instead
-*/
+//Perfect hashing using two levels of hashing
+// that function is mentioned as a graph in the Lecture slides
+
+void hash_PerfectHashing(vector<vector<int>> arr, int key) {
+	int a = 3, b = 42, prime = 101;// Constants for the perfect hashing ,they can be any values
+	int outer_hash = ((a * key + b) %prime) % arr.size(); // First hash function
+    int inner_hash = ((arr[outer_hash][1] * key + arr[outer_hash][2]) % prime) % arr[outer_hash][0]; // Second hash function
+	arr[outer_hash][inner_hash] = key;
+}
+
+
 
 int main()
 {

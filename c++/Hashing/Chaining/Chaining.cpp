@@ -22,6 +22,37 @@ int HashFunction_Division(int key, int size)
     return key % size;
 }
 
+// Hash function using the multiplication method 
+int HashFunction_Multiplication(int key, int size)
+{
+    // The multiplication method operates by multiplying the key by a constant A in the range (0,1)
+    // and extracting the fractional part of the product. The size of the hash table is then multiplied
+    // by the fractional part to get the index.
+    // The constant A is usually chosen as a value close to the golden ratio (0.6180339887).
+    float A = 0.6180339887;
+    float val = key * A;
+    float fraction = val - int(val); // or we can use val % 1 to get the fractional part
+
+    // Example:
+    // Suppose:
+    //   key = 12345;
+    //   size = 16; (size of the hash table)
+    //   A = 0.6180339887; 
+    //
+    // 1. Multiply key by A:
+    //      val = 12345 * 0.6180339887 = 7633.473980015
+    //
+    // 2. Extract the fractional part:
+    //      fraction = 7633.473980015 - int(7633.473980015) = 0.473980015
+    //
+	// 3. Multiply by size and take the floor of the result:  //the size is prefered to be 2 power number
+    //      index = int(16 * 0.473980015) = int(7.58368024) = 7
+    //
+    // So, the hash function maps key = 12345 to index = 7.
+
+    return int(size * fraction);
+}
+
 // Function to hash a key into an array of linked lists (chaining)
 void hash_Chaining(LinkedList<int>* arr, int key, int size)
 {

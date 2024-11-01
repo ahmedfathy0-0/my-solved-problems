@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": ".",
-      "program": "build/Debug/outDebug",
+      "cwd": "c:/Users/Ahmed Fathy/Desktop/My projects/my-solved-problems/c++/Leetcode/Streak",
+      "program": "c:/Users/Ahmed Fathy/Desktop/My projects/my-solved-problems/c++/Leetcode/Streak/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
